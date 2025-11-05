@@ -1,0 +1,11 @@
+const express = require("express");
+const router = express.Router();
+const auth = require("../middleware/authMiddleware");
+const role = require("../middleware/roleMiddleware");
+const userController = require("../controllers/userController");
+
+router.use(auth);
+router.get("/me", userController.me);
+router.put("/me", userController.updateProfile);
+
+module.exports = router;

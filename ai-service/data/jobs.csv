@@ -1,0 +1,5 @@
+_id,title,description,skills_required,location,salary
+1,Frontend Developer,"Build UI with React and Tailwind","React,JavaScript,HTML,CSS",Remote,60000
+2,Backend Developer,"Design REST APIs in Node.js and MongoDB","Node.js,Express,MongoDB",Remote,70000
+3,ML Engineer,"Work on NLP models and embeddings","Python,NLP,Tensorflow,PyTorch",Bangalore,120000
+4,Full Stack Developer,"React + Node.js full stack work","React,Node.js,Express,Postgres",Remote,90000

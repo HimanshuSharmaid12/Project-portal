@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: Jobify AI - Recommendation API
+  version: "1.0.0"
+paths:
+  /recommend:
+    post:
+      summary: Recommend jobs for candidate text/skills
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                skills:
+                  oneOf:
+                    - type: array
+                      items: { type: string }
+                    - type: string
+                text:
+                  type: string
+      responses:
+        "200":
+          description: Top job recommendations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recommendations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id: { type: string }
+                        title: { type: string }
+                        description: { type: string }
+                        skills_required:
+                          type: array
+                          items: { type: string }
+                        score: { type: number }
+        "400":
+          description: Missing input
+        "500":
+          description: Service error
