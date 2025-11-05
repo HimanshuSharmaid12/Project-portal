@@ -5,8 +5,8 @@ const Navbar = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
-      <Link to="/" className="text-2xl font-bold text-blue-600">JobifyAI</Link>
+    <nav className="bg-blue-500 shadow-md py-4 px-6 flex justify-between items-center">
+      <Link to="/" className="text-2xl font-bold text-white-600">JOB AI PORTAL</Link>
       <div className="space-x-4">
         {!user ? (
           <>

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { loginUser } from "../services/authService";
-import { useAuth } from "../context/AuthContext";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth } from "../context/AuthContext";
+import { loginUser } from "../services/authService";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -18,14 +18,28 @@ const Login = () => {
       login(data.user);
       localStorage.setItem("token", data.token);
       toast.success("Login successful!");
-      navigate("/");
-    } catch (err) {
+       navigate("/");
+
+
+
+ //  Redirect based on user role
+      const role = data.user?.role?.toLowerCase();
+
+      if (role === "admin") navigate("/admin/dashboard");
+      else if (role === "recruiter") navigate("/recruiter/dashboard");
+      else navigate("/user/dashboard");
+
+    }
+    catch (err) {
       toast.error(err.response?.data?.message || "Login failed");
     }
   };
 
   return (
+
+ 
     <div className="max-w-md mx-auto bg-white p-6 shadow rounded">
+
       <h2 className="text-2xl font-semibold mb-4">Login</h2>
       <form onSubmit={handleSubmit} className="space-y-3">
         <input name="email" type="email" placeholder="Email"
@@ -37,6 +51,9 @@ const Login = () => {
         </button>
       </form>
     </div>
+
+ 
+  
   );
 };
 

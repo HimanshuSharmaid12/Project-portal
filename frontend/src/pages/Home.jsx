@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">Latest Job Openingsbj</h1>
+      <h1 className="text-3xl font-bold mb-4">Job Application Portal</h1>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         {jobs.map((job) => (
           <JobCard key={job._id} job={job} />
